@@ -1,0 +1,27 @@
+#include<iostream>
+#include<vector>
+using namespace std;
+int main()
+{
+    // Adjacency Matrix;
+    int vertex , edges;
+    cin>>vertex>>edges;
+    vector<vector<int>> AdjMat(vertex,vector<int>(vertex,0));
+    int u,v,w;
+    for(int i=0;i<edges;i++)
+    {
+        cin>>u>>v>>w;
+        AdjMat[u][v]=w;
+    }
+    cout<<"Adjanecny Matrixof undirected and unweighted graph";
+    cout<<endl;
+    for(int i=0;i<vertex;i++)
+    {
+        for(int j=0;j<vertex;j++)
+        {
+            cout<<AdjMat[i][j]<<" ";
+        }
+        cout<<endl;
+    }
+    return 0;
+}
