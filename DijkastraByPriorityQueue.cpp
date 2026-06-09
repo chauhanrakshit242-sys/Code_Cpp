@@ -28,43 +28,27 @@ int main()
 
     vector<int> dist(vertex, INT_MAX);
 
-    dist[src] = 0;
-
-    set<pair<int,int>> st;
-
-    // {distance, node}
-    st.insert({0, src});
-
-    while(!st.empty())
+    priority_queue<pair<int,int>,vector<pair<int,int>>,greater<pair<int,int>>>pq;
+    pq.push({0,src});
+    dist[src]=0;
+    while(!pq.empty())
     {
-        auto node = *(st.begin());
-
-        st.erase(st.begin());
-
-        int distance = node.first;
-        int currNode = node.second;
-
-        for(auto neighbor : adj[currNode])
+        auto node =pq.top();
+        int weight=node.first;
+        int element=node.second;
+        pq.pop();
+        for(auto neighbor : adj[element])
         {
-            int adjNode = neighbor.first;
-            int edgeWeight = neighbor.second;
-
-            if(distance + edgeWeight < dist[adjNode])
-            {
-                auto record = st.find({dist[adjNode], adjNode});
-
-                if(record != st.end())
-                {
-                    st.erase(record);
-                }
-
-                dist[adjNode] = distance + edgeWeight;
-
-                st.insert({dist[adjNode], adjNode});
-            }
+              int adjNode = neighbor.first;
+              int edges_weight=neighbor.second;
+              if(edges_weight+weight < dist [adjNode])
+              {
+                dist[adjNode]=edges_weight+weight;
+                pq.push({dist[adjNode],adjNode});
+              }
         }
-    }
 
+    }
     cout << "Shortest Distance from Source Node " << src << ":\n";
 
     for(int i = 0; i < vertex; i++)
