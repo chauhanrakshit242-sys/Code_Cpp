@@ -8,8 +8,11 @@ bool comp(vector<int>& a, vector<int>& b)
 
 void makeSet(vector<int>& parent, vector<int>& rank, int n)
 {
+
+    
     for(int i = 0; i < n; i++)
     {
+
         parent[i] = i;
         rank[i] = 0;
     }
