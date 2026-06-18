@@ -11,7 +11,6 @@ int main()
         int u , w;
         cin >> u >>w;
         AdjList[u].push_back(w);
-        AdjList[w].push_back(u);
     }
     for(int i=0;i<v;i++)
     {

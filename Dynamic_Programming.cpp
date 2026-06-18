@@ -47,8 +47,9 @@ int fib(int n)
     for(int i=2;i<=n;i++)
     {
         c=first_term+second_term;
-        second_term=first_term;
-        first_term=c;
+        first_term=second_term;
+        second_term=c;
+        
     }
     return c;
 }

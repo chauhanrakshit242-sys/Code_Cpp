@@ -8,7 +8,7 @@ int main()
     cin >> v >> e;
 
     vector<pair<int ,int> > AdjList[v];  // adjacency list
-
+     vector<vector<int>>adj(v);
     int u,r,w;  // use w instead of v
 
     // take edges input
