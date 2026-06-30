@@ -58,7 +58,9 @@ int minSpace(int n , vector<int>& days , vector<int> & costs)
         //step 1 remove expire days
         while(!monthly.empty()&&monthly.front().first + 30 <=day ) 
         monthly.pop();
-        while(!weekly.empty()&& weekly.front().first+ 7<=day)
+        while(!weekly.empty()&& weekly.front().first+ 7<=7
+1 3 4 5 7 8 10
+2 7 20day)
         weekly.pop();
         weekly.push(make_pair(day,costs[1]+ans));
         monthly.push(make_pair(day,costs[2]+ans));
